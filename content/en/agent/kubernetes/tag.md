@@ -64,6 +64,15 @@ For example, you could set up:
 DD_KUBERNETES_NODE_LABELS_AS_TAGS='{"app":"kube_app"}'
 ```
 
+For Agent v7.24.0+, use the following environment variable configuration to add all node labels as tags to your metrics. In this example, the tags names are prefixed by `<PREFIX>_`:
+
+```shell
+DD_KUBERNETES_NODE_LABELS_AS_TAGS='{"*":"<PREFIX>_%%label%%"}'
+```
+
+**Note**: Using this method may increase the number of [custom metrics][1] for your organization and impact your billing.
+
+[1]: /developers/metrics/
 {{% /tab %}}
 {{% tab "Agent" %}}
 
@@ -163,6 +172,15 @@ For example, you could set up:
 DD_KUBERNETES_POD_ANNOTATIONS_AS_TAGS='{"app":"kube_app"}'
 ```
 
+For Agent v7.24.0+, use the following environment variable configuration to add all pod annotations as tags to your metrics. In this example, the tags names are prefixed by `<PREFIX>_`:
+
+```shell
+DD_KUBERNETES_POD_ANNOTATIONS_AS_TAGS='{"*":"<PREFIX>_%%annotation%%"}'
+```
+
+**Note**: Using this method may increase the number of [custom metrics][1] for your organization and impact your billing.
+
+[1]: /developers/metrics/
 {{% /tab %}}
 {{% tab "Agent" %}}
 
